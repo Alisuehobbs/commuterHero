@@ -7,8 +7,8 @@ $(document).ready(function() {
 
             var startVal = $('#start').val()
             var endVal = $('#end').val()
-            console.log(start);
-            console.log(end);
+            console.log(startVal);
+            console.log(endVal);
 
             function calculateRoute(start, end) {
                 var myOptions = {

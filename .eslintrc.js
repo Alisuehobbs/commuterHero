@@ -4,5 +4,4 @@ module.exports = {
     'ryansobol/es5'
     'ryansobol/jquery'
   ]
-  rule
 };

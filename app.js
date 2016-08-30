@@ -11,11 +11,11 @@ $(document).ready(function() {
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
+                zoom: 10,
                 center: {
-                    lat: -24.345,
-                    lng: 134.46
-                } // Australia.
+                    lat: 40.02,
+                    lng: 105.27
+                } // Boulder
             });
             $('#map').append(map.mapUrl)
 
@@ -32,6 +32,8 @@ $(document).ready(function() {
 
             displayRoute(startVal, endVal, directionsService,
                 directionsDisplay);
+
+                console.log(displayRoute);
         }
         initMap()
 

@@ -21,7 +21,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
   <!-- Google Maps JavaScript -->
-  <script async defer src="http://maps.google.com/maps/api/js?&key=AIzaSyCs8htQy84wt5ehvd6x-0iIh6HqcLXTFMI"></script>
+  <script async defer src="http://maps.google.com/maps/api/js?&key=AIzaSyAsDoGo1sQ4Qlta2_m4u3hUWt2WUDUNiLU"></script>
 
   <!-- JavaScript -->
   <script src="app.js"></script>
@@ -69,7 +69,8 @@
             <i class="material-icons large center-align">directions_walk</i>
             <br>
             <span class="card-title">Distance</span>
-            <p>Your route is _ miles long.</p>
+            <br>
+            <p>Your route is  <h3 id="distance"></h3>  miles long.</p>
           </div>
           <div>
             <a href="#">Learn More</a>
@@ -85,7 +86,8 @@
             <i class="material-icons large center-align">local_gas_station</i>
             <br>
             <span class="card-title">Gallons Saved</span>
-            <p>You saved _ gallons of gas.</p>
+            <br>
+            <p>You saved  <h3 id="gallons"></h3>  gallons of gas.</p>
           </div>
           <div>
             <a href="#">Learn More</a>
@@ -100,8 +102,9 @@
           <div class="card-content black-text">
             <i class="material-icons large center-align">attach_money</i>
             <br>
-            <span class="card-title">Dollars Saved</span>
-            <p>You saved _ dollars.</p>
+            <span class="card-title">Money Saved</span>
+            <br>
+            <p>You saved  <h3 id="dollars"></h3>  dollars.</p>
           </div>
           <div>
             <a href="#">Learn More</a>
@@ -117,7 +120,8 @@
             <i class="material-icons large center-align">cloud</i>
             <br>
             <span class="card-title">CO2 Saved</span>
-            <p>You saved _ grams of CO2 from entering the atmosphere.</p>
+            <br>
+            <p>You saved  <h3 id="emissions"></h3>  grams of CO2 from entering the atmosphere.</p>
           </div>
           <div>
             <a href="#">Learn More</a>

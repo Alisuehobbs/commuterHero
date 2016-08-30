@@ -8,3 +8,11 @@
 #map {
   height: 500px;
 }
+
+h3 {
+  display: inline;
+}
+
+p {
+  display: inline;
+}

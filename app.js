@@ -56,8 +56,20 @@ $(document).ready(function() {
             for (var i = 0; i < myroute.legs.length; i++) {
                 total += myroute.legs[i].distance.value;
             }
-            total = total / 1000;
-            document.getElementById('total').innerHTML = total + ' km';
+
+
+            miles = (total / 1609.344).toFixed(2);
+            $('#distance').append(miles)
+
+            gallons = (miles / 19.5).toFixed(2)
+            $('#gallons').append(gallons)
+
+            dollars = (gallons * 2.218).toFixed(2)
+            $('#dollars').append('$' + dollars)
+
+            emissions = (gallons * 8887).toFixed(2)
+            $('#emissions').append(emissions)
+
         }
         // computeTotalDistance()
 

@@ -17,3 +17,27 @@ h3 {
 p {
   display: inline;
 }
+
+#instructions {
+  display: block;
+}
+
+#map {
+  display: none;
+}
+
+.showDirections {
+  display: none;
+}
+
+.hideDirections {
+  display: none;
+}
+
+#directions {
+  display: none;
+}
+
+.hiddenCards {
+  display: none;
+}

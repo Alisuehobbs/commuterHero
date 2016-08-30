@@ -1,13 +1,24 @@
 $(document).ready(function() {
 
-    $('#submit').on('click', function(event) {
-        // event.preventDefault()
-        console.log("Submit was clicked");
+    $('#submit').on('click', function() {
+        $('#map').show()
+        $('.showDirections').show()
+        $('.hiddenCards').show()
+
+        $('.showDirections').click(function() {
+            $('#directions').show();
+            $('.showDirections').hide();
+            $('.hideDirections').show();
+        })
+
+        $('.hideDirections').click(function() {
+          $('#directions').hide();
+          $('.showDirections').show();
+          $('.hideDirections').hide();
+        })
 
         var startVal = $('#start').val()
         var endVal = $('#end').val()
-        console.log(startVal);
-        console.log(endVal);
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -15,9 +26,8 @@ $(document).ready(function() {
                 center: {
                     lat: 40.02,
                     lng: 105.27
-                } // Boulder
+                } // centralized on Boulder
             });
-            $('#map').append(map.mapUrl)
 
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -32,8 +42,6 @@ $(document).ready(function() {
 
             displayRoute(startVal, endVal, directionsService,
                 directionsDisplay);
-
-                console.log(displayRoute);
         }
         initMap()
 
@@ -41,7 +49,7 @@ $(document).ready(function() {
             service.route({
                 origin: origin,
                 destination: destination,
-                travelMode: 'DRIVING',
+                travelMode: 'WALKING',
                 avoidTolls: true
             }, function(response, status) {
                 if (status === 'OK') {
@@ -58,8 +66,6 @@ $(document).ready(function() {
             for (var i = 0; i < myroute.legs.length; i++) {
                 total += myroute.legs[i].distance.value;
             }
-
-
             miles = (total / 1609.344).toFixed(2);
             $('#distance').append(miles)
 
@@ -71,51 +77,11 @@ $(document).ready(function() {
 
             emissions = (gallons * 8887).toFixed(2)
             $('#emissions').append(emissions)
-
         }
-        // computeTotalDistance()
-
-
-
-
-
-        //PREVIOUS WORK
-
-        // function calculateRoute(start, end) {
-        //     var myOptions = {
-        //         zoom: 10,
-        //         center: new google.maps.LatLng(40.02, 105.27),
-        //         mapTypeId: 'roadmap',
-        //     };
-        //     //draw the map
-        //     var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
-        //
-        //     var directionsDisplay = new google.maps.DirectionsRenderer;
-        //
-        //     var directionsService = new google.maps.DirectionsService();
-        //     var directionsRequest = {
-        //         origin: start,
-        //         destination: end,
-        //         travelMode: 'DRIVING',
-        //         unitSystem: google.maps.UnitSystem.IMPERIAL,
-        //     };
-        //     directionsService.route(
-        //         directionsRequest,
-        //         function(response, status) {
-        //             if (status == google.maps.DirectionsStatus.OK) {
-        //                 console.log('It was okay');
-        //                 console.log('mapObject: ', mapObject);
-        //                 directionsDisplay.setMap(mapObject)
-        //                 var myMap = new google.maps.DirectionsRenderer({
-        //                     map: mapObject,
-        //                     directions: response
-        //                 });
-        //                 $('#map').append(mapObject.mapUrl)
-        //             } else
-        //                 $("#error").append("Unable to retrieve your route<br />");
-        //         }
-        //     );
-        // }
-        // calculateRoute(startVal, endVal)
     })
+
+    $('#refresh').on('click', function() {
+        location.reload()
+    })
+
 })

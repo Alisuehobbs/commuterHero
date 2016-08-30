@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  $('.modal-trigger').leanModal();
+
+
     $('#submit').on('click', function() {
         $('#map').show()
         $('.showDirections').show()

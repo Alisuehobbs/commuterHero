@@ -69,6 +69,7 @@ $(document).ready(function() {
                         }, function(response, status) {
                             if (status === 'OK') {
                                 display.setDirections(response);
+                                console.log(response);
                             } else {
                                 alert('Could not display directions due to: ' + status);
                             }
@@ -94,8 +95,8 @@ $(document).ready(function() {
                               dollars = ((gallons * 2.218) * days).toFixed(2)
                               $('#dollars').text('$' + dollars)
 
-                              dollars = ((gallons * 2.218) * days).toFixed(2)
-                              $('#dollars').text('$' + dollars)
+                              emissions = ((gallons * 8887) * days).toFixed(2)
+                              $('#emissions').text(emissions)
 
                             } else {
                                 gallons = ((miles / 21.6) * days).toFixed(2)

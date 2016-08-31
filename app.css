@@ -41,3 +41,7 @@ p {
 .hiddenCards {
   display: none;
 }
+
+footer {
+  margin-left: 10px;
+}

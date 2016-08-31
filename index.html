@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Commuter Hero</title>
+  <title>Cool Commute</title>
 
   <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
@@ -33,33 +33,150 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a class="brand-logo center">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a><i class="material-icons" id="refresh">replay</i></a></li>
-      </ul>
+      <a class="brand-logo center">Cool Commute</a>
     </div>
   </nav>
   <br>
   <br>
 
-  <h4 class="center-align">Each of us contributes to climate change daily.<br>How can you lighten your impact?</h4>
+  <h4 class="center-align">How can you use your commute to keep the climate cool?</h4>
   <br>
-  <p class="center-align" id="instructions">Input a start and end location to see how much you can save by walking or biking instead of driving.</p>
+  <h5 class="center-align">In the US, <strong>76%</strong> of the 128.3 million commuters <strong>drive alone</strong><br>emitting about <strong>893 million metric tons of CO2</strong> into the atmosphere <strong>every year</strong>.</h5>
+  <br>
+  <p class="center-align" id="instructions">Input your home and work address to see how much of an impact you can make by biking, walking, or taking public transportation to work or school.</p>
   <br>
 
   <div class="container">
     <div class="row">
-      <form class="col s12 center-align">
-          <div class="input-field col s6">
-            <input id="start" type="text" class="validate">
-            <label for="start">Start Location</label>
+      <form class="center-align">
+        <div class="input-field col s6">
+          <label for="start">Home Address</label>
+          <input id="start" type="text" class="validate">
+        </div>
+        <div class="input-field col s6">
+          <label for="end">Work or School Address</label>
+          <input id="end" type="text" class="validate">
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <label for="days">Days this week you can walk, bike, or take public transportaion.</label>
+            <input id="days" type="number" class="validate">
           </div>
-          <div class="input-field col s6">
-            <input id="end" type="text" class="validate">
-            <label for="end">End Location</label>
-          </div>
-          <a class="waves-effect waves-light btn" id="submit">Submit</a>
+        </div>
+        <a class="waves-effect waves-light btn" id="submit">Submit</a>
       </form>
+    </div>
+
+    <div class="hiddenCards">
+      <div class="row">
+        <div class="col s12">
+          <div class="card center-align z-depth-0">
+            <div class="card-content black-text">
+              <i class="material-icons large center-align">directions_walk</i>
+              <br>
+              <span class="card-title">Distance</span>
+              <br>
+              <p>Your commute is
+                <h3 id="distance">0</h3> miles long each day.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card center-align z-depth-0">
+            <div class="card-content black-text">
+              <i class="material-icons large center-align">local_gas_station</i>
+              <br>
+              <span class="card-title">Gallons Saved</span>
+              <br>
+              <p>You saved
+                <h3 id="gallons">0</h3> gallons of gas this week.</p>
+            </div>
+            <div>
+              <a href="#modal1" class="modal-trigger">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4>Gallons Saved</h4>
+          <p>Calculated based on an average of 19.5 mpg.<br>Source: http://www.rita.dot.gov/</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card center-align z-depth-0">
+            <div class="card-content black-text">
+              <i class="material-icons large center-align">attach_money</i>
+              <br>
+              <span class="card-title">Money Saved</span>
+              <br>
+              <p>You saved
+                <h3 id="dollars">0</h3> dollars.</p>
+            </div>
+            <div>
+              <a href="#modal2" class="modal-trigger">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal2" class="modal">
+        <div class="modal-content">
+          <h4>Money Saved</h4>
+          <p>Calculated based on the national average of the cost of gas, $2.218.<br>Source: http://gasprices.aaa.com/</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col s12">
+          <div class="card center-align z-depth-0">
+            <div class="card-content black-text">
+              <i class="material-icons large center-align">cloud</i>
+              <br>
+              <span class="card-title">CO2 Saved</span>
+              <br>
+              <p>You saved
+                <h3 id="emissions">0</h3> grams of CO2
+                <br> from entering the atmosphere.</p>
+            </div>
+            <div>
+              <a href="#modal3" class="modal-trigger">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="modal3" class="modal">
+        <div class="modal-content">
+          <h4>CO2 Saved</h4>
+          <p>Calculated based an average 8,887 grams of CO2 emitted per gallon.<br>Source: https://www.epa.gov/sites/production/files/2016-02/documents/420f14040a.pdf</p>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <form class="col s12 center-align">
+          <!-- <div class="row"> -->
+          <div class="input-field col s12">
+            <input id="email" type="email" class="validate">
+            <label for="email">Email</label>
+          </div>
+        </form>
+      </div>
     </div>
 
     <div id="map"></div>
@@ -71,102 +188,16 @@
     <br>
     <button class="hideDirections">Hide Walking Directions</button>
 
-  <div class="hiddenCards">
-    <div class="row">
-      <div class="col s12">
-        <div class="card center-align z-depth-0">
-          <div class="card-content black-text">
-            <i class="material-icons large center-align">directions_walk</i>
-            <br>
-            <span class="card-title">Distance</span>
-            <br>
-            <p>Your route is  <h3 id="distance"></h3>  miles long.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
-        <div class="card center-align z-depth-0">
-          <div class="card-content black-text">
-            <i class="material-icons large center-align">local_gas_station</i>
-            <br>
-            <span class="card-title">Gallons Saved</span>
-            <br>
-            <p>You saved  <h3 id="gallons"></h3>  gallons of gas.</p>
-          </div>
-          <div>
-            <a href="#modal1" class="modal-trigger">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="modal1" class="modal">
-      <div class="modal-content">
-        <h4>Gallons Saved</h4>
-        <p>Calculated based on an of 19.5 mpg.</p>
-      </div>
-      <div class="modal-footer">
-        <p>Source: http://www.rita.dot.gov/</p>
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
-        <div class="card center-align z-depth-0">
-          <div class="card-content black-text">
-            <i class="material-icons large center-align">attach_money</i>
-            <br>
-            <span class="card-title">Money Saved</span>
-            <br>
-            <p>You saved  <h3 id="dollars"></h3>  dollars.</p>
-          </div>
-          <div>
-            <a href="#">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col s12">
-        <div class="card center-align z-depth-0">
-          <div class="card-content black-text">
-            <i class="material-icons large center-align">cloud</i>
-            <br>
-            <span class="card-title">CO2 Saved</span>
-            <br>
-            <p>You saved  <h3 id="emissions"></h3>  grams of CO2
-              <br>
-              from entering the atmosphere.</p>
-          </div>
-          <div>
-            <a href="#">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <form class="col s12 center-align">
-        <!-- <div class="row"> -->
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-      </form>
-    </div>
-</div>
+  </div>
 
 
 </body>
 
 <footer>
-  <div class="footer-copyright black-text center-align">
-    &copy; Ali Hobbs
+  <div class="footer-copyright black-text">
+    “Commuter Driving Statistics – Statistic Brain.” 2016 Statistic Brain Research Institute, publishing as Statistic Brain.
+    <br> March 4, 2016 http://www.statisticbrain.com/commute-statistics/.
+    <br><br> &copy; Ali Hobbs 2016
   </div>
 </footer>
 

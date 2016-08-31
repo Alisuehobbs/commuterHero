@@ -1,9 +1,17 @@
 $(document).ready(function() {
 
+  // modals
   $('.modal-trigger').leanModal();
 
-
+    // submit
     $('#submit').on('click', function() {
+      //clear directions
+      $('#directions').children().remove()
+
+      var startVal = $('#start').val()
+      var endVal = $('#end').val()
+      var days = $('#days').val()
+
         $('#map').show()
         $('.showDirections').show()
         $('.hiddenCards').show()
@@ -20,8 +28,6 @@ $(document).ready(function() {
           $('.hideDirections').hide();
         })
 
-        var startVal = $('#start').val()
-        var endVal = $('#end').val()
 
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -53,7 +59,6 @@ $(document).ready(function() {
                 origin: origin,
                 destination: destination,
                 travelMode: 'WALKING',
-                avoidTolls: true
             }, function(response, status) {
                 if (status === 'OK') {
                     display.setDirections(response);
@@ -69,22 +74,20 @@ $(document).ready(function() {
             for (var i = 0; i < myroute.legs.length; i++) {
                 total += myroute.legs[i].distance.value;
             }
-            miles = (total / 1609.344).toFixed(2);
-            $('#distance').append(miles)
+            miles = ((total / 1609.344) * 2).toFixed(2);
+            $('#distance').text(miles)
 
-            gallons = (miles / 19.5).toFixed(2)
-            $('#gallons').append(gallons)
+            gallons = ((miles / 19.5) * days).toFixed(2)
+            $('#gallons').text(gallons)
 
-            dollars = (gallons * 2.218).toFixed(2)
-            $('#dollars').append('$' + dollars)
+            dollars = ((gallons * 2.218) * days).toFixed(2)
+            $('#dollars').text('$' + dollars)
 
-            emissions = (gallons * 8887).toFixed(2)
-            $('#emissions').append(emissions)
+            emissions = ((gallons * 8887) * days).toFixed(2)
+            $('#emissions').text(emissions)
+
+
         }
-    })
-
-    $('#refresh').on('click', function() {
-        location.reload()
     })
 
 })

@@ -3,6 +3,9 @@ $(document).ready(function() {
   // modals
   $('.modal-trigger').leanModal();
 
+  //form select
+  $('select').material_select();
+
     // submit
     $('#submit').on('click', function() {
       //clear directions
@@ -11,6 +14,7 @@ $(document).ready(function() {
       var startVal = $('#start').val()
       var endVal = $('#end').val()
       var days = $('#days').val()
+      var typeOfTranspo = $('#typeOfTranspo').val()
 
         $('#map').show()
         $('.showDirections').show()
@@ -28,7 +32,10 @@ $(document).ready(function() {
           $('.hideDirections').hide();
         })
 
+        //stats info
+        $('#statsInfo').text(`If you travel by ${typeOfTranspo} for ${days} days this week, you will save:`)
 
+        //map and directions
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 10,
@@ -58,7 +65,7 @@ $(document).ready(function() {
             service.route({
                 origin: origin,
                 destination: destination,
-                travelMode: 'WALKING',
+                travelMode: typeOfTranspo,
             }, function(response, status) {
                 if (status === 'OK') {
                     display.setDirections(response);

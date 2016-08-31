@@ -59,11 +59,25 @@
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <label for="days">Days this week you can walk, bike, or take public transportaion.</label>
+            <label for="days">Days this week committed to alternative transportation.</label>
             <input id="days" type="number" class="validate">
           </div>
         </div>
-        <a class="waves-effect waves-light btn" id="submit">Submit</a>
+        <div class="row">
+          <div class="input-field col s12">
+            <label></label>
+            <select id="typeOfTranspo">
+            <option value="">Choose your alternative transportation</option>
+            <option value="WALKING">Walk</option>
+            <option value="BICYCLING">Bike</option>
+            <option value="TRANSIT">Public Transportation</option>
+          </select>
+          </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <a class="waves-effect waves-light btn" id="submit">Submit</a>
+        </div>
       </form>
     </div>
 
@@ -74,14 +88,13 @@
             <div class="card-content black-text">
               <i class="material-icons large center-align">directions_walk</i>
               <br>
-              <span class="card-title">Distance</span>
-              <br>
-              <p>Your commute is
-                <h3 id="distance">0</h3> miles long each day.</p>
+              <p class="distanceCard">Your commute is <h3 class="distanceCard" id="distance">0</h3> miles long each day.</p>
             </div>
           </div>
         </div>
       </div>
+
+      <p class="center-align" id="statsInfo">0</p>
 
       <div class="row">
         <div class="col s12">
@@ -89,10 +102,8 @@
             <div class="card-content black-text">
               <i class="material-icons large center-align">local_gas_station</i>
               <br>
-              <span class="card-title">Gallons Saved</span>
-              <br>
-              <p>You saved
-                <h3 id="gallons">0</h3> gallons of gas this week.</p>
+              <h3 id="gallons">0</h3>
+              <p>gallons of gas this week.</p>
             </div>
             <div>
               <a href="#modal1" class="modal-trigger">Learn More</a>
@@ -117,10 +128,8 @@
             <div class="card-content black-text">
               <i class="material-icons large center-align">attach_money</i>
               <br>
-              <span class="card-title">Money Saved</span>
-              <br>
-              <p>You saved
-                <h3 id="dollars">0</h3> dollars.</p>
+                <h3 id="dollars">0</h3>
+                <p>this week.</p>
             </div>
             <div>
               <a href="#modal2" class="modal-trigger">Learn More</a>
@@ -145,11 +154,8 @@
             <div class="card-content black-text">
               <i class="material-icons large center-align">cloud</i>
               <br>
-              <span class="card-title">CO2 Saved</span>
-              <br>
-              <p>You saved
-                <h3 id="emissions">0</h3> grams of CO2
-                <br> from entering the atmosphere.</p>
+                <h3 id="emissions">0</h3>
+                <p>grams of CO2 from entering the atmosphere this week.</p>
             </div>
             <div>
               <a href="#modal3" class="modal-trigger">Learn More</a>
@@ -167,28 +173,28 @@
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
         </div>
       </div>
-
-      <div class="row">
-        <form class="col s12 center-align">
-          <!-- <div class="row"> -->
-          <div class="input-field col s12">
-            <input id="email" type="email" class="validate">
-            <label for="email">Email</label>
-          </div>
-        </form>
-      </div>
     </div>
+
 
     <div id="map"></div>
     <br>
     <br>
-    <button class="showDirections">Show Walking Directions</button>
+    <button class="showDirections">Show Directions</button>
     <div id="directions"></div>
     <br>
     <br>
-    <button class="hideDirections">Hide Walking Directions</button>
+    <button class="hideDirections">Hide Directions</button>
 
+    <div class="row">
+      <form class="col s12 center-align">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </form>
+    </div>
   </div>
+
 
 
 </body>

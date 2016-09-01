@@ -64,8 +64,8 @@
 
           <div class="row">
             <div class="input-field col s12">
-              <label for="days">Days this week committed to alternative transportation.</label>
-              <input id="days" type="number" class="validate">
+              <label for="days">Days this month committed to alternative transportation:</label>
+              <input id="days" type="number" min="0" max="30" class="validate">
             </div>
           </div>
 
@@ -96,7 +96,7 @@
             <div class="card-content black-text">
               <i class="material-icons large center-align">directions_walk</i>
               <br>
-              <p class="distanceCard">Your total commute is
+              <p class="distanceCard">Your daily commute is
                 <h3 class="distanceCard" id="distance">0</h3> miles long.</p>
             </div>
           </div>
@@ -112,7 +112,7 @@
               <i class="material-icons large center-align">local_gas_station</i>
               <br>
               <h3 id="gallons">0</h3>
-              <p>gallons of gas this week.</p>
+              <p>gallons of gas this month.</p>
             </div>
             <div>
               <a href="#modal1" class="modal-trigger">Learn More</a>
@@ -139,7 +139,7 @@
               <i class="material-icons large center-align">credit_card</i>
               <br>
               <h3 id="dollars">0</h3>
-              <p>on gas this week.</p>
+              <p>on gas this month.</p>
             </div>
             <div>
               <a href="#modal2" class="modal-trigger">Learn More</a>
@@ -165,7 +165,7 @@
               <i class="material-icons large center-align">cloud</i>
               <br>
               <h3 id="emissions">0</h3>
-              <p>grams of CO2 from entering the atmosphere this week.</p>
+              <p>grams of CO2 from entering the atmosphere this month.</p>
             </div>
             <div>
               <a href="#modal3" class="modal-trigger">Learn More</a>

@@ -53,7 +53,7 @@ $(document).ready(function() {
         })
 
         //stats info
-        $('#statsInfo').text(`If you travel by ${typeOfTranspo} for ${days} days this week, you will save:`)
+        $('#statsInfo').text(`If you travel by ${typeOfTranspo} for ${days} days this month, you will save:`)
 
         //map and directions
         function initMap() {
@@ -112,20 +112,20 @@ $(document).ready(function() {
                     gallons = (((miles / 21.6) - busGallons) * days).toFixed(2)
                     $('#gallons').text(gallons)
 
-                    dollars = ((gallons * 2.218) * days).toFixed(2)
+                    dollars = (gallons * 2.218).toFixed(2)
                     $('#dollars').text('$' + dollars)
 
-                    emissions = ((gallons * 8887) * days).toFixed(2)
+                    emissions = (gallons * 8887).toFixed(2)
                     $('#emissions').text(emissions)
 
                 } else {
                     gallons = ((miles / 21.6) * days).toFixed(2)
                     $('#gallons').text(gallons)
 
-                    dollars = ((gallons * 2.218) * days).toFixed(2)
+                    dollars = (gallons * 2.218).toFixed(2)
                     $('#dollars').text('$' + dollars)
 
-                    emissions = ((gallons * 8887) * days).toFixed(2)
+                    emissions = (gallons * 8887).toFixed(2)
                     $('#emissions').text(emissions)
                 }
             }

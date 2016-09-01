@@ -24,8 +24,8 @@ $(document).ready(function() {
         if (endVal == "") {
           errors.push('Please enter a vaild work or school address.')
         }
-        if (days == 0) {
-          errors.push('Please select at least 1 day.')
+        if (days < 1 || days > 30) {
+          errors.push('Please select a number of days between 1 and 30.')
         }
         if (typeOfTranspo == '') {
           errors.push('Please select one type of transportation.')
@@ -38,6 +38,7 @@ $(document).ready(function() {
         $('#map').show()
         $('.showDirections').show()
         $('.hiddenCards').show()
+        $('.hideDirections').hide()
 
         $('.showDirections').click(function() {
             $('#directions').show();

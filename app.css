@@ -112,8 +112,10 @@ input, optgroup, select, textarea {
 
 #showDirections {
     background-color: #0a4863;
+    display: block;
 }
 
 #hideDirections {
     background-color: #0a4863;
+    display: block;
 }

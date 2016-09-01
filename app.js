@@ -123,7 +123,7 @@ $(document).ready(function() {
 
             $('#dollars').text('$' + dollars);
 
-            var emissions = (gallons * 8887).toFixed(2);
+            var emissions = (gallons * 8887).toLocaleString('en');
 
             $('#emissions').text(emissions);
           }
@@ -136,7 +136,7 @@ $(document).ready(function() {
 
             $('#dollars').text('$' + dollars);
 
-            var emissions = (gallons * 8887).toFixed(2);
+            var emissions = (gallons * 8887).toLocaleString('en');
 
             $('#emissions').text(emissions);
           }

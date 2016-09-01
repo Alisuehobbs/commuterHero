@@ -40,53 +40,53 @@
     </div>
   </nav>
   <br>
+
+  <h4 class="center-align">How can you use your commute to keep the climate cool?</h4>
   <br>
+  <h5 class="center-align">In the US, <b>76%</b> of the 128.3 million commuters <u>drive alone</u> every day<br>emitting about <b>893 million metric tons of CO2</b> into the atmosphere every year.</h5>
+  <br>
+  <p class="center-align" id="instructions">Input your home and work address to see how much of an impact you can make by<br>biking, walking, or taking public transportation to work or school.</p>
 
-    <h4 class="center-align">How can you use your commute to keep the climate cool?</h4>
-    <br>
-    <h5 class="center-align">In the US, <b>76%</b> of the 128.3 million commuters <u>drive alone</u> every day<br>emitting about <b>893 million metric tons of CO2</b> into the atmosphere every year.</h5>
-    <br>
-    <p class="center-align" id="instructions">Input your home and work address to see how much of an impact you can make by<br>biking, walking, or taking public transportation to work or school.</p>
+  <div class="row" id="slantedDiv">
+    <form class="center-align">
+      <div class="row">
+        <br><br><br>
+        <div class="input-field col s6">
+          <label for="start">Home Address</label>
+          <input id="start" type="text" class="validate" autofocus>
+        </div>
 
-    <div class="row">
-      <form class="center-align">
+        <div class="input-field col s6">
+          <label for="end">Work or School Address</label>
+          <input id="end" type="text" class="validate">
+        </div>
+
         <div class="row">
-
-          <div class="input-field col s6">
-            <label for="start">Home Address</label>
-            <input id="start" type="text" class="validate" autofocus>
+          <div class="input-field col s12">
+            <label for="days">Days this month committed to alternative transportation:</label>
+            <input id="days" type="number" min="0" max="30" class="validate">
           </div>
+        </div>
 
-          <div class="input-field col s6">
-            <label for="end">Work or School Address</label>
-            <input id="end" type="text" class="validate">
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <label for="days">Days this month committed to alternative transportation:</label>
-              <input id="days" type="number" min="0" max="30" class="validate">
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s12">
-              <select id="typeOfTranspo">
+        <div class="row">
+          <div class="input-field col s12">
+            <select id="typeOfTranspo">
                 <option value="">Choose your alternative transportation</option>
                 <option value="WALKING">Walk</option>
                 <option value="BICYCLING">Bike</option>
                 <option value="TRANSIT">Public Transportation</option>
               </select>
-            </div>
           </div>
-
-          <div class="row">
-            <a class="waves-effect waves-light btn" id="submit">Submit</a>
-          </div>
-
         </div>
-      </form>
-</div>
+
+        <div class="row">
+          <a class="waves-effect waves-light btn" id="submit">Submit</a>
+        </div>
+        <br>
+
+      </div>
+    </form>
+  </div>
 
   <div class="container">
     <div class="hiddenCards">
@@ -184,14 +184,14 @@
         </div>
       </div>
 
-      <div id="map"></div>
-      <br>
-      <br>
-      <a class="waves-effect waves-light btn showDirections" id="showDirections">Show Directions</a>
-      <div id="directions"></div>
-      <br>
-      <br>
-      <a class="waves-effect waves-light btn hideDirections" id="hideDirections">Hide Directions</a>
+        <div id="map"></div>
+        <br>
+        <br>
+        <a class="waves-effect waves-light btn showDirections" id="showDirections">Show Directions</a>
+        <div id="directions"></div>
+        <br>
+        <br>
+        <a class="waves-effect waves-light btn hideDirections" id="hideDirections">Hide Directions</a>
 
     </div>
   </div>

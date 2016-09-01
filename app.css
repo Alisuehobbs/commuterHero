@@ -1,105 +1,119 @@
 body {
-font-family: 'Cuprum', sans-serif;
+    font-family: 'Cuprum', sans-serif;
 }
 
 nav {
-  margin-top: -27px;
-  background-color: #A7F5D5;
+    margin-top: -27px;
+    background-color: #A7F5D5;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 55%, 0 100%);
+    height: 80px;
 }
 
 #logo {
-  color: #0A4863;
+    color: #0A4863;
 }
 
-form {
-  margin: 0;
+#slantedDiv {
+    -webkit-clip-path: polygon(0 13%, 100% 0, 100% 85%, 0 100%);
+    background-color: rgba(243, 243, 243, .35);
 }
 
 p {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .distanceCard {
-  display: inline;
+    display: inline;
 }
 
+
 #map {
-  height: 500px;
-  width: 900px;
-  justify-content: center;
-  display: none;
+    height: 500px;
+    width: 900px;
+    justify-content: center;
+    display: none;
 }
 
 #instructions {
-  display: block;
+    display: block;
 }
 
 #statsInfo {
-  font-size: 35px;
+    font-size: 35px;
 }
 
 .showDirections {
-  display: none;
+    display: none;
 }
 
 .hideDirections {
-  display: none;
+    display: none;
 }
 
 #directions {
-  display: none;
+    display: none;
 }
 
 .hiddenCards {
-  display: none;
+    display: none;
 }
 
 footer {
-  margin-left: 10px;
+    margin-left: 10px;
 }
 
+
 /* label color */
- .input-field label {
-   color: #4cb8af;
- }
- /* label focus color */
- .input-field input:focus + label {
-   color: #0a4863;
- }
- /* label underline focus color */
- .input-field input:focus {
-   border-bottom: 1px solid #000;
-   box-shadow: 0 1px 0 0 #000;
- }
- /* valid color */
- .input-field input.valid {
-   border-bottom: 1px solid #0a4863;
-   box-shadow: 0 1px 0 0 #0a4863;
- }
- /* invalid color */
- .input-field input.invalid {
-   border-bottom: 1px solid #F00;
-   box-shadow: 0 1px 0 0 #F00;
- }
- .input-field select {
-   color: #0a4863;
- }
+.input-field label {
+    color: #152842;
+    font-size: 15px;
+    font-weight: bold;
+}
 
- #submit {
-  background-color: #0a4863;
- }
+/*form line color for text types*/
+.input-field input[type=text] {
+    border-bottom: 2px solid #A7F5D5;
+}
 
- #showDirections {
-  background-color: #0a4863;
- }
+/*form line color for number types*/
+.input-field input[type=number] {
+    border-bottom: 2px solid #A7F5D5;
+}
 
- #hideDirections {
-  background-color: #0a4863;
- }
+/* form line focus color */
+.input-field input:focus {
+  border-bottom: 2px solid #0a4863;
+}
+
+/*dropdown text*/
+.dropdown-content li>span {
+  color: #152842;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/*dropdown label*/
+input, optgroup, select, textarea {
+  color: #152842;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#submit {
+    background-color: #0a4863;
+}
+
+#showDirections {
+    background-color: #0a4863;
+}
+
+#hideDirections {
+    background-color: #0a4863;
+}

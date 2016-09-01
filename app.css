@@ -1,3 +1,24 @@
+body {
+font-family: 'Cuprum', sans-serif;
+}
+
+nav {
+  margin-top: -27px;
+  background-color: #A7F5D5;
+}
+
+#logo {
+  color: #0A4863;
+}
+
+form {
+  margin: 0;
+}
+
+p {
+  font-size: 20px;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -11,7 +32,9 @@
 
 #map {
   height: 500px;
-  width: 500px;
+  width: 900px;
+  justify-content: center;
+  display: none;
 }
 
 #instructions {
@@ -19,11 +42,7 @@
 }
 
 #statsInfo {
-  size: 50px;
-}
-
-#map {
-  display: none;
+  font-size: 35px;
 }
 
 .showDirections {
@@ -45,3 +64,42 @@
 footer {
   margin-left: 10px;
 }
+
+/* label color */
+ .input-field label {
+   color: #4cb8af;
+ }
+ /* label focus color */
+ .input-field input:focus + label {
+   color: #0a4863;
+ }
+ /* label underline focus color */
+ .input-field input:focus {
+   border-bottom: 1px solid #000;
+   box-shadow: 0 1px 0 0 #000;
+ }
+ /* valid color */
+ .input-field input.valid {
+   border-bottom: 1px solid #0a4863;
+   box-shadow: 0 1px 0 0 #0a4863;
+ }
+ /* invalid color */
+ .input-field input.invalid {
+   border-bottom: 1px solid #F00;
+   box-shadow: 0 1px 0 0 #F00;
+ }
+ .input-field select {
+   color: #0a4863;
+ }
+
+ #submit {
+  background-color: #0a4863;
+ }
+
+ #showDirections {
+  background-color: #0a4863;
+ }
+
+ #hideDirections {
+  background-color: #0a4863;
+ }

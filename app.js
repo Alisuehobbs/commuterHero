@@ -35,6 +35,7 @@ $(document).ready(function() {
           alert(errors)
         } else {
 
+
         $('#map').show()
         $('.showDirections').show()
         $('.hiddenCards').show()
@@ -131,6 +132,8 @@ $(document).ready(function() {
             statCalculation(typeOfTranspo)
           }
         }
+        //scroll to stats
+        window.scrollBy( 0,550 )
     })
 
 })

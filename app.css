@@ -18,6 +18,46 @@ nav {
     background-color: rgba(243, 243, 243, .35);
 }
 
+/* form label color */
+.input-field label {
+  color: #152842;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* form line color for text types */
+.input-field input[type=text] {
+  border-bottom: 2px solid #A7F5D5;
+}
+
+/* form line color for number types */
+.input-field input[type=number] {
+  border-bottom: 2px solid #A7F5D5;
+}
+
+/* form line focus color */
+.input-field input:focus {
+  border-bottom: 2px solid #0a4863;
+}
+
+/* dropdown label */
+input, optgroup, select, textarea {
+  color: #152842;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* dropdown text */
+.dropdown-content li>span {
+  color: #152842;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#submit {
+  background-color: #0a4863;
+}
+
 p {
     font-size: 20px;
 }
@@ -29,93 +69,38 @@ p {
     flex-direction: column;
 }
 
-.distanceCard {
-    display: inline;
-}
-
-
-#map {
-    height: 500px;
-    width: 900px;
-    justify-content: center;
-    display: none;
-}
-
-#instructions {
-    display: block;
+.hiddenCards {
+  display: none;
 }
 
 #statsInfo {
+    display: inline;
     font-size: 35px;
 }
 
-.showDirections {
-    display: none;
+#map {
+  height: 500px;
+  width: 900px;
+  justify-content: center;
+  display: none;
 }
 
-.hideDirections {
+#showDirections {
     display: none;
+    background-color: #0a4863;
+    display: block;
+}
+
+#hideDirections {
+    display: none;
+    background-color: #0a4863;
+    display: block;
 }
 
 #directions {
     display: none;
 }
 
-.hiddenCards {
-    display: none;
-}
-
 footer {
-    margin-left: 10px;
-}
-
-
-/* label color */
-.input-field label {
-    color: #152842;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-/*form line color for text types*/
-.input-field input[type=text] {
-    border-bottom: 2px solid #A7F5D5;
-}
-
-/*form line color for number types*/
-.input-field input[type=number] {
-    border-bottom: 2px solid #A7F5D5;
-}
-
-/* form line focus color */
-.input-field input:focus {
-  border-bottom: 2px solid #0a4863;
-}
-
-/*dropdown text*/
-.dropdown-content li>span {
-  color: #152842;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-/*dropdown label*/
-input, optgroup, select, textarea {
-  color: #152842;
-  font-size: 15px;
-  font-weight: bold;
-}
-
-#submit {
-    background-color: #0a4863;
-}
-
-#showDirections {
-    background-color: #0a4863;
-    display: block;
-}
-
-#hideDirections {
-    background-color: #0a4863;
-    display: block;
+  margin-left: 10px;
 }

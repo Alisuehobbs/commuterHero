@@ -29,7 +29,6 @@
   <!-- JavaScript -->
   <script src="app.js"></script>
 
-
 </head>
 
 <body>
@@ -39,7 +38,6 @@
       <h2 class="center-align" id="logo">Cool Commute</h2>
     </div>
   </nav>
-  <br>
 
   <h4 class="center-align">How can you use your commute to keep the climate cool?</h4>
   <br>
@@ -48,7 +46,7 @@
   <p class="center-align" id="instructions">Input your home and work address to see how much of an impact you can make by<br>biking, walking, or taking public transportation to work or school.</p>
 
   <div class="row" id="slantedDiv">
-    <form class="center-align">
+    <form class="center-align" action="">
       <div class="row">
         <br><br><br>
         <div class="input-field col s6">
@@ -71,11 +69,11 @@
         <div class="row">
           <div class="input-field col s12">
             <select id="typeOfTranspo">
-                <option value="">Choose your alternative transportation</option>
-                <option value="WALKING">Walk</option>
-                <option value="BICYCLING">Bike</option>
-                <option value="TRANSIT">Public Transportation</option>
-              </select>
+              <option value="">Choose your alternative transportation</option>
+              <option value="WALKING">Walk</option>
+              <option value="BICYCLING">Bike</option>
+              <option value="TRANSIT">Public Transportation</option>
+            </select>
           </div>
         </div>
 
@@ -83,7 +81,6 @@
           <a class="waves-effect waves-light btn" id="submit">Submit</a>
         </div>
         <br>
-
       </div>
     </form>
   </div>
@@ -97,13 +94,15 @@
               <i class="material-icons large center-align">directions_walk</i>
               <br>
               <p class="distanceCard">Your daily commute is</p>
-                <h3 class="distanceCard" id="distance">0</h3> <p class="distanceCard">miles long.</p>
+              <h3 class="distanceCard" id="distance">0</h3> <p class="distanceCard">miles long.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <h5 class="center-align" id="statsInfo">0</h5>
+      <div class ="row center-align">
+        <h5 class="center-align" id="statsInfo">0</h5>
+      </div>
 
       <div class="row">
         <div class="col s12">
@@ -125,7 +124,7 @@
         <div class="modal-content">
           <h4>Gallons Saved</h4>
           <p>Calculations are based on the national average of 21.6 mpg for personal vehicles.<br><br>Calculation for public transportation is based on the national average of 3.26 mpg for transit buses and an average of 35 passengers.<br><br>Sources:
-            <a href="https://www.epa.gov/sites/production/files/2016-02/documents/420f14040a.pdf" target="_blank">www.epa.gov</a>, <a href="http://www.afdc.energy.gov/data/10310" target="_blank">www.afdc.energy.gov</a></p>
+          <a href="https://www.epa.gov/sites/production/files/2016-02/documents/420f14040a.pdf" target="_blank">www.epa.gov</a>, <a href="http://www.afdc.energy.gov/data/10310" target="_blank">www.afdc.energy.gov</a></p>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
@@ -165,7 +164,7 @@
               <i class="material-icons large center-align">cloud</i>
               <br>
               <h3 id="emissions">0</h3>
-              <p>grams of CO2 from entering the atmosphere this month.<p>
+              <p>grams of CO2 from entering the atmosphere this month.</p>
               <h4>This is just one person's impact in a month!</h4>
             </div>
             <div>
@@ -177,7 +176,7 @@
 
       <div id="modal3" class="modal">
         <div class="modal-content">
-          <h4>Imagine the impact of 50 people, 1,000 people, 100,000 people!<br>It takes one person to start change.</h4><p><br><br>Calculations are based an average 8,887 grams of CO2 emitted per gallon.<br><br>Source: <a href="https://www.epa.gov/sites/production/files/2016-02/documents/420f14040a.pdf" target="_blank">www.epa.gov</a></p>
+          <h5>Imagine the impact of 50 people, 1,000 people, 100,000 people!</h5><h4><br>It takes one person to start change.</h4><p><br>Calculations are based an average 8,887 grams of CO2 emitted per gallon.<br><br>Source: <a href="https://www.epa.gov/sites/production/files/2016-02/documents/420f14040a.pdf" target="_blank">www.epa.gov</a></p>
         </div>
         <div class="modal-footer">
           <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
@@ -187,17 +186,13 @@
         <div id="map"></div>
         <br>
         <br>
-        <a class="waves-effect waves-light btn showDirections" id="showDirections">Show Directions</a>
+        <a class="waves-effect waves-light btn" id="showDirections">Show Directions</a>
         <div id="directions"></div>
         <br>
         <br>
-        <a class="waves-effect waves-light btn hideDirections" id="hideDirections">Hide Directions</a>
-
+        <a class="waves-effect waves-light btn" id="hideDirections">Hide Directions</a>
     </div>
   </div>
-
-
-
 </body>
 
 <footer>

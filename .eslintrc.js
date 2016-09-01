@@ -1,7 +1,10 @@
 module.exports = {
   extends: [
     'ryansobol/browser',
-    'ryansobol/es5'
+    'ryansobol/es6',
     'ryansobol/jquery'
   ]
+ //  rules: {
+ //   "prefer-arrow-callback": "off",
+ // }
 };

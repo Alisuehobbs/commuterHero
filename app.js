@@ -1,139 +1,147 @@
 $(document).ready(function() {
+  // modals
+  $('.modal-trigger').leanModal();
 
-    // modals
-    $('.modal-trigger').leanModal();
+  // form select
+  $('select').material_select();
 
-    //form select
-    $('select').material_select();
+  // submit
+  $('#submit').on('click', function() {
+    // clear directions
+    $('#directions').children().remove();
 
-    // submit
-    $('#submit').on('click', function() {
-        //clear directions
-        $('#directions').children().remove()
+    const startVal = $('#start').val();
+    const endVal = $('#end').val();
+    const days = $('#days').val();
+    const typeOfTranspo = $('#typeOfTranspo').val();
 
-        var startVal = $('#start').val()
-        var endVal = $('#end').val()
-        var days = $('#days').val()
-        var typeOfTranspo = $('#typeOfTranspo').val()
+    // errors
+    const errors = [];
 
-        //errors
-        var errors = []
-        if (startVal == "") {
-          errors.push('Please enter a valid home address.')
+    if (startVal === '') {
+      errors.push('Please enter a valid home address.');
+    }
+    if (endVal === '') {
+      errors.push('Please enter a vaild work or school address.');
+    }
+    if (days < 1 || days > 30) {
+      errors.push('Please select a number of days between 1 and 30.');
+    }
+    if (typeOfTranspo === '') {
+      errors.push('Please select one type of transportation.');
+    }
+
+    if (errors.length !== 0) {
+      alert(errors);
+    }
+    else {
+      $('#map').show();
+      $('#showDirections').show();
+      $('.hiddenCards').show();
+      $('#hideDirections').hide();
+
+      $('#showDirections').click(function() {
+        $('#directions').show();
+        $('#showDirections').hide();
+        $('#hideDirections').show();
+      });
+
+      $('#hideDirections').click(function() {
+        $('#directions').hide();
+        $('#showDirections').show();
+        $('#hideDirections').hide();
+      });
+
+        // stats info
+      $('#statsInfo').text(`If you travel by ${typeOfTranspo} for ${days} days this month, you will save:`);
+
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById('map'), {
+          center: {
+            lat: 40.02,
+            zoom: 10,
+            lng: 105.27
+          } // centralized on Boulder
+        });
+
+        const directionsService = new google.maps.DirectionsService;
+        const directionsDisplay = new google.maps.DirectionsRenderer({
+          draggable: true,
+          map: map,
+          panel: document.getElementById('directions')
+        });
+
+        directionsDisplay.addListener('directions_changed', function() {
+          computeTotalDistance(directionsDisplay.getDirections());
+        });
+
+        displayRoute(startVal, endVal, directionsService, directionsDisplay);
+      }
+      initMap();
+      function displayRoute(origin, destination, service, display) {
+        service.route({
+          destination: destination,
+          origin: origin,
+          travelMode: typeOfTranspo
+        }, function(response, status) {
+          if (status === 'OK') {
+            display.setDirections(response);
+          }
+          else {
+            alert('Could not display directions due to: ' + status);
+          }
+        });
+      }
+
+      function computeTotalDistance(result) {
+        let total = 0;
+        const myroute = result.routes[0];
+
+        for (let i = 0; i < myroute.legs.length; i++) {
+          total += myroute.legs[i].distance.value;
         }
-        if (endVal == "") {
-          errors.push('Please enter a vaild work or school address.')
-        }
-        if (days < 1 || days > 30) {
-          errors.push('Please select a number of days between 1 and 30.')
-        }
-        if (typeOfTranspo == '') {
-          errors.push('Please select one type of transportation.')
-        }
 
-        if (errors.length !== 0) {
-          alert(errors)
-        } else {
+        const miles = ((total / 1609.344) * 2).toFixed(2);
 
-        $('#map').show()
-        $('.showDirections').show()
-        $('.hiddenCards').show()
-        $('.hideDirections').hide()
+        $('#distance').text(miles);
 
-        $('.showDirections').click(function() {
-            $('#directions').show();
-            $('.showDirections').hide();
-            $('.hideDirections').show();
-        })
+        function statCalculation(typeOfTranspo) {
+          if (typeOfTranspo === 'TRANSIT') {
+            const busGallons = ((miles / 3.26) / 35);
 
-        $('.hideDirections').click(function() {
-            $('#directions').hide();
-            $('.showDirections').show();
-            $('.hideDirections').hide();
-        })
+            const gallons = (((miles / 21.6) - busGallons) * days).toFixed(2);
 
-        //stats info
-        $('#statsInfo').text(`If you travel by ${typeOfTranspo} for ${days} days this month, you will save:`)
+            $('#gallons').text(gallons);
 
-        //map and directions
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 10,
-                center: {
-                    lat: 40.02,
-                    lng: 105.27
-                } // centralized on Boulder
-            });
+            const dollars = (gallons * 2.218).toFixed(2);
 
-            var directionsService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer({
-                draggable: true,
-                map: map,
-                panel: document.getElementById('directions')
-            });
+            $('#dollars').text('$' + dollars);
 
-            directionsDisplay.addListener('directions_changed', function() {
-                computeTotalDistance(directionsDisplay.getDirections());
-            });
+            const emissions = (gallons * 8887).toLocaleString('en');
 
-            displayRoute(startVal, endVal, directionsService,
-                directionsDisplay);
-        }
-        initMap()
+            $('#emissions').text(emissions);
+          }
+          else {
+            const gallons = ((miles / 21.6) * days).toFixed(2);
 
-        function displayRoute(origin, destination, service, display) {
-            service.route({
-                origin: origin,
-                destination: destination,
-                travelMode: typeOfTranspo,
-            }, function(response, status) {
-                if (status === 'OK') {
-                    display.setDirections(response);
-                    console.log(response);
-                } else {
-                    alert('Could not display directions due to: ' + status);
-                }
-            });
-        }
+            $('#gallons').text(gallons);
 
-        function computeTotalDistance(result) {
-            var total = 0;
-            var myroute = result.routes[0];
-            for (var i = 0; i < myroute.legs.length; i++) {
-                total += myroute.legs[i].distance.value;
-            }
+            const dollars = (gallons * 2.218).toFixed(2);
 
-            miles = ((total / 1609.344) * 2).toFixed(2);
-            $('#distance').text(miles)
+            $('#dollars').text('$' + dollars);
 
-            function statCalculation(typeOfTranspo) {
-                if (typeOfTranspo === 'TRANSIT') {
-                    busGallons = ((miles / 3.26) / 35)
-                    gallons = (((miles / 21.6) - busGallons) * days).toFixed(2)
-                    $('#gallons').text(gallons)
+            const emissions = (gallons * 8887).toLocaleString('en');
 
-                    dollars = (gallons * 2.218).toFixed(2)
-                    $('#dollars').text('$' + dollars)
-
-                    emissions = (gallons * 8887).toFixed(2)
-                    $('#emissions').text(emissions)
-
-                } else {
-                    gallons = ((miles / 21.6) * days).toFixed(2)
-                    $('#gallons').text(gallons)
-
-                    dollars = (gallons * 2.218).toFixed(2)
-                    $('#dollars').text('$' + dollars)
-
-                    emissions = (gallons * 8887).toFixed(2)
-                    $('#emissions').text(emissions)
-                }
-            }
-            statCalculation(typeOfTranspo)
+            $('#emissions').text(emissions);
           }
         }
-        //scroll to stats
-        window.scroll( 0, 650 )
-    })
+        statCalculation(typeOfTranspo);
 
-})
+          // map and directions
+      }
+    }
+
+    // scroll to stats
+    window.scroll(0, 650);
+  });
+});

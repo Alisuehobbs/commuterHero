@@ -1,3 +1,4 @@
+[![Waffle.io - Issues in progress](https://badge.waffle.io/Alisuehobbs/guiltTrip.png?label=in%20progress&title=In%20Progress)](https://waffle.io/Alisuehobbs/guiltTrip?utm_source=badge)
 Q1 Project Write-Up
 
 What's the name of your project?
